@@ -13,9 +13,16 @@ public class ViewUtils
                 textField.setMaxWidth(473);
         }
 
+
         public static void StyleButton(Button button)
         {
                 button.getStyleClass().addAll("text-size-lg", "bg-light-blue", "text-white", "text-weight-700", "rounded-border");
+                button.setMaxWidth(473);
+        }
+
+        public static void StyleButton(Button button, String bgColor)
+        {
+                button.getStyleClass().addAll("text-size-lg", bgColor, "text-white", "text-weight-700", "rounded-border");
                 button.setMaxWidth(473);
         }
 

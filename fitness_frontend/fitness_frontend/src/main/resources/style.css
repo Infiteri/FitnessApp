@@ -64,6 +64,10 @@ ScrollPane > .viewport {
     -fx-background-color: #ba2f2f;
 }
 
+.p-4 {
+    -fx-padding: 4px;
+}
+
 /* text */
 .text-size-lg{
     -fx-font-size: 36px;
@@ -101,6 +105,11 @@ ScrollPane > .viewport {
 .bg-light-blue{
     -fx-background-color: #377BE1;
 }
+
+.bg-light-yellow{
+    -fx-background-color: #e1bf37;
+}
+
 
 .bg-light-red{
     -fx-background-color: #e13742;

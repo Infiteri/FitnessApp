@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/user")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController
 {
         @Autowired
@@ -29,7 +30,7 @@ public class UserController
         }
 
         @GetMapping("/phoneNumber")
-        public ResponseEntity<User> GetUserById(@RequestParam String phoneNumber)
+        public ResponseEntity<User> GetUserByPhoneNumber(@RequestParam String phoneNumber)
         {
                 var user = service.GetByPhoneNumber(phoneNumber);
                 if (user.isEmpty())
