@@ -5,9 +5,12 @@ import Hyperlink from "../components/Hyperlink";
 import InputMainPage from "../components/specifics/InputMainPage";
 import Utils from "../utils/Utils";
 import ApiUtils from "../utils/ApiUtils";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
     const [password, setPassword] = useState('');
+      const navigate = useNavigate();
+
     const [phoneNumber, setPhoneNumber] = useState('');
 
     const invalidCredentials = (message) => {
@@ -29,10 +32,11 @@ export default function LoginPage() {
             method: "POST"
         });
 
-
         if (res.ok) {
-
-        } else {
+            localStorage.setItem("phoneNumber", phoneNumber);
+            navigate("/user");
+        }
+        else {
             invalidCredentials("Coulnd't login")
             setPassword("");
             setPhoneNumber("")
