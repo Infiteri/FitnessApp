@@ -4,6 +4,7 @@ import fit.fitness.entities.WorkoutExercise;
 import fit.fitness.repositories.ExerciseRepository;
 import fit.fitness.repositories.WorkoutExerciseRepository;
 import jakarta.transaction.Transactional;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

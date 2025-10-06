@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/v1/workout")
+@CrossOrigin(origins = "http://localhost:5173")
 public class WorkoutController
 {
         private static final Logger LOG = Logger.getLogger(WorkoutController.class.getName());
@@ -72,6 +73,12 @@ public class WorkoutController
         }
 
         // PUT
+        @PutMapping
+        public ResponseEntity<Workout> UpdateWorkout(@RequestBody Workout workout) {
+                var result = service.UpdateWorkout(workout.getId(), workout.getName(), workout.getWorkoutDateTime());
+                if(result == null) return ResponseEntity.badRequest().build();
+                else return ResponseEntity.ok(result);
+        }
 
         // DELETE
         @DeleteMapping
@@ -84,7 +91,6 @@ public class WorkoutController
         @DeleteMapping("/exercises")
         public ResponseEntity<WorkoutExercise> DeleteWorkoutExerciseByWorkoutId(@RequestParam int workoutId, @RequestParam int exerciseId)
         {
-                LOG.info("ID: " + workoutId + " EXER: " + exerciseId);
                 workoutExerciseService.DeleteWorkoutExercise(workoutId, exerciseId);
                 return ResponseEntity.ok().build();
         }

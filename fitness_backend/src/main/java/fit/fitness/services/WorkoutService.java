@@ -54,6 +54,16 @@ public class WorkoutService
         }
 
         // PUT
+        public Workout UpdateWorkout(int workoutId,String newWorkoutName, LocalDateTime newWorkoutDateTime) {
+                var workoutOpt = GetById(workoutId);
+
+                if(workoutOpt.isEmpty()) return null;
+                var workout = workoutOpt.get();
+                workout.setName(newWorkoutName);
+                workout.setWorkoutDateTime(newWorkoutDateTime);
+                return repo.save(workout);
+        }
+
 
         // DELETE
         public void DeleteWorkoutById(int id)
